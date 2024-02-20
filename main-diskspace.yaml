@@ -12,5 +12,5 @@
       slack:
         token: "{{ slack_token }}"
         channel: "{{ slack_channel }}"
-        msg: "Disk space on {{ inventory_hostname }} is above 80%!"
+        msg: "Disk space on {{ inventory_hostname }} is {{  disk_usage.stdout  }}. Please check it ASAP!"
       when: disk_usage.stdout[:-1]|int > 80
